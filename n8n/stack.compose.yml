@@ -1,0 +1,18 @@
+services:
+  n8n:
+    image: n8nio/n8n:latest
+    container_name: n8n
+    restart: unless-stopped
+    ports:
+      - "5678:5678"
+    environment:
+      - GENERIC_TIMEZONE=Australia/Sydney
+      - TZ=Australia/Sydney
+      - N8N_SECURE_COOKIE=false
+      # Uncomment and set these if you expose n8n externally via reverse proxy:
+      # - N8N_HOST=n8n.yourdomain.com
+      # - N8N_PROTOCOL=https
+      # - WEBHOOK_URL=https://n8n.yourdomain.com/
+    volumes:
+      - /volume1/docker/n8n:/home/node/.n8n
+    user: "1000:1000"
