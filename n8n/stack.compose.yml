@@ -15,4 +15,4 @@ services:
       # - WEBHOOK_URL=https://n8n.yourdomain.com/
     volumes:
       - /volume1/docker/n8n:/home/node/.n8n
-    user: "1000:1000"
+    user: "0:0"  # Run as root to avoid permission issues on Synology volumes
